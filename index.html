@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Set the page title -->
-    <title>Group Project</title>
+    <title>Hangman</title>
 
     <!-- Set the charset we're using to UTF-8 -->
     <meta charset="UTF-8" />
@@ -14,23 +14,41 @@
     <link rel="stylesheet" href="./reset.css" />
 
     <!-- This is where all of our awesome CSS code goes -->
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles.css" />
 
     <!-- Set the Favicon  -->
     <link rel="icon" href="./images/favicon/rocket.svg" type="image/svg+xml" />
   </head>
   <body>
-    <!--
-
-      ADD YOUR GROUP PROJECT CODE
-
-      YOU MAY REMOVE THE BOILERPLATE CODE BELOW
-
-    -->
-    <main>
-      <div id="app"></div>
-    </main>
-
+    
+    <div class=" container">
+        <div class="game-info">
+            <div class="game-name">Hangman</div>
+            <div class ="theme">Theme:<span></span>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="hangman-draw">
+                <div class="the-drawing">
+                    <div class="stand"></div>
+                    <div class="hang"></div>
+                    <div class="rope"></div>
+                    <div class="man">
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="arms"></div>
+                        <div class="legs"></div>
+                    </div>
+                </div> 
+            </div> 
+            <div class="letters"></div>
+        </div>
+        <hr>
+        <div class="letters-guess"></div>
+    </div>
+    <audio id="success" src="audio/success.mp4" preload="auto"></audio>
+    <audio id="fail" src="audio/fail.mp4" preload="auto"></audio>
     <!-- This is where we add our awesome JavaScript code -->
     <script src="./main.js"></script>
   </body>
