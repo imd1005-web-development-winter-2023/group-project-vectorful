@@ -1,55 +1,317 @@
-/*
-  CSS File
-*/
 
-/*
- VARIABLES
-*/
-:root {
-  /* Core colours */
-  /* https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557 */
-  --colour-amaranth: #e63946;
-  --colour-peppermint: #f1faee;
-  --colour-aquaisland: #a8dadc;
-  --colour-wedgewood: #457b9d;
-  --colour-cello: #1d3557;
-
-  /* Header configuration */
-  --header-heading-colour: var(--colour-peppermint);
-
-  /* Body configuration */
-  --body-default-colour: var(--colour-peppermint);
-  --body-background-colour: var(--colour-cello);
+body{
+    
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/*
-  PAGE / BODY
-*/
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--body-default-colour);
-  background-color: var(--body-background-colour);
+.container{
+    margin: 20px auto;
+    width: 1000px;
+    font-size: 16px;
+    /*background-color: white;*/
 }
 
-main {
-  min-height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.row{
+    display: flex;
 }
+
+hr{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #EEE;
+}
+
+.game-info{
+display: flex;
+}
+
+.game-info .game-name{
+    flex:1;
+}
+
+.game-info .theme{
+    flex : 1;
+    text-align: right;
+}
+
+.game-info .theme span{
+    text-transform: capitalize;
+    color:red;
+    font-weight: bold;
+}
+
+.hangman-draw{
+    flex:1;
+    background-color: #f8f8f8;
+    padding : 20px;
+    height: 324px;
+    border-radius: 10px;
+
+}
+
+.hangman-draw .the-drawing{
+    width:60px;
+    height: 280px;
+    border-bottom: 4px solid #222;
+    position: relative;
+    margin: auto;
+    left:-60px;
+    display:none;
+}
+
+.hangman-draw .stand{
+    content:'';
+    position: absolute;
+    width:4px;
+    background-color: #222;
+    height: 100%;
+    left: 50%;
+    margin-left: -2px;
+    display:none;
+}
+
+.hangman-draw .hang{
+    display:none;
+}
+
+.hangman-draw .hang:before{
+    content:'';
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    width: 100px;
+    left: 30px;
+    top: 10px;
+}
+
+.hangman-draw .hang:after{
+    content:'';
+    position: absolute;
+    width: 4px;
+    height: 30px;
+    background-color: #222;
+    left: 130px;
+    top: 10px;
+}
+
+.hangman-draw .rope{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    position: absolute;
+    left: 95px;
+    top: 40px;
+    border: 4px dashed #222;
+    display:none;
+}
+
+.hangman-draw .man .head{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid #222;
+    position: absolute;
+    left: 105px;
+    top: 50px;
+    display:none;
+}
+
+.hangman-draw .man .body{
+    background-color: #222;
+    width: 4px;
+    height: 110px;
+    position: absolute;
+    left: 130px;
+    top: 100px;
+    display:none;
+}
+
+/* hangman arms*/
+.hangman-draw .man .arms{
+    display:none;
+}
+
+.hangman-draw .man .arms:before{
+   left: 85px;
+   transform: rotate(30deg);
+}
+
+.hangman-draw .man .arms:after{
+    left: 130px;
+    transform: rotate(-30deg);
+ }
+
+ .hangman-draw .man .arms:before, 
+ .hangman-draw .man .arms:after {
+    content:'';
+    width: 50px;
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    top: 130px;
+}
+
+/* hangman legs*/
+.hangman-draw .man .legs{
+    display:none;
+}
+
+.hangman-draw .man .legs:before{
+    left: 85px;
+    transform: rotate(-30deg);
+ }
+ 
+ .hangman-draw .man .legs:after{
+     left: 130px;
+     transform: rotate(30deg);
+  }
+ 
+  .hangman-draw .man .legs:before, 
+  .hangman-draw .man .legs:after {
+     content:'';
+     width: 50px;
+     position: absolute;
+     height: 4px;
+     background-color: #222;
+     top: 220px;
+ }
+
+ .hangman-draw.wrong-1 .the-drawing {
+    display: block;
+ }
+
+ .hangman-draw.wrong-2 .stand {
+    display: block;
+ }
+
+ .hangman-draw.wrong-3 .hang {
+    display: block;
+ }
+
+ .hangman-draw.wrong-4 .rope {
+    display: block;
+ }
+
+ .hangman-draw.wrong-5 .head {
+    display: block;
+ }
+
+ .hangman-draw.wrong-6 .body {
+    display: block;
+ }
+
+ .hangman-draw.wrong-7 .arms {
+    display: block;
+ }
+
+ .hangman-draw.wrong-8 .legs {
+    display: block;
+ }
+
+ .letters {
+    flex:1;
+    padding: 15px;
+    text-align: center;
+ }
+
+ .letters.finished {
+    pointer-events: none;
+ }
+
+ .letters .letter-box { 
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    background-color: rgb(118, 67, 206);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    color: white;
+    font-size: 24x;
+    margin-right: 10px;
+    line-height: 55px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 5px;
+ }
+
+ .letters .letter-box:hover { 
+    opacity:0.8;
+ }
+
+ .letters .letter-box.clicked { 
+    background-color: #222;
+    opacity:.2;
+    pointer-events: none;
+ }
+ 
+
+ .letters-guess {
+    margin: 10px auto;
+    background-color: #f8f8f8;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 104px;
+ }
+
+ .letters-guess span{
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #fdfdfd;
+    border-bottom: 3px solid #222;
+ }
+
+ .letters-guess span.with-space {
+    background: none;
+    border-bottom: none;
+    position: relative;
+ }
+
+ .letters-guess span.with-space:before {
+    content:' ';
+    width: 20px;
+    height: 4px;
+    background-color: rgb(118, 67, 206);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+ }
+
+ .popup {
+    position: fixed;
+    background-color: rgb(118, 67, 206);
+    padding: 100px 20px;
+    width: 80%;
+    top: 30%;
+    left: 10%;
+    text-align: center;
+    font-size: 40px;
+    color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 5px rgba(68, 68, 68, 0.5);
+    opacity: 0.9;
+  }
 
 /*
   Screen reader text utility class
 */
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
