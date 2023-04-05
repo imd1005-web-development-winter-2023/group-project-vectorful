@@ -1,73 +1,190 @@
-//
-//  JS File
-//  You may remove the code below - it's just boilerplate
-//
+//letters 
+const letters ="abcdefghijklmnopqrstuvwxyz";
 
-//
-// Variables
-//
+//get array from letters 
+let lettersArray = Array.from(letters);
 
-// Constants
-const appID = "app";
-const headingText = "Develop. Preview. Ship.";
-const headingTextIcon = "🚀";
-const projectDueDate = "11 April 2023 11:59";
+// select letters container
+let lettersContainer = document.querySelector(".letters");
 
-// Variables
-let countdownDate = new Date(projectDueDate);
+//generate letters 
+lettersArray.forEach(letter => {
+ 
+    //create span
+    let span = document.createElement("span");
 
-// DOM Elements
-let appContainer = document.getElementById(appID);
+    // create letters text node 
+    let theLetter = document.createTextNode(letter);
 
-//
-// Functions
-//
+    //append the letter to span
+    span.appendChild(theLetter);
 
-function calculateDaysLeft(countdownDate) {
-  const now = new Date().getTime();
-  const countdown = new Date(countdownDate).getTime();
+    // add class on span
+    span.className="letter-box";
 
-  const difference = (countdown - now) / 1000;
+    // append doan to the letters container
+    lettersContainer.appendChild(span);
+});
 
-  // Countdown passed already
-  if (difference < 1) {
-    return null;
-  }
 
-  const days = Math.floor(difference / (60 * 60 * 24));
-
-  return days;
+//object of words and themes
+const words ={
+    movies:["Titanic", "Inception", "Up", "Tangled", "Whiplash"],
+    countries:["Canada", "Libya", "Turkey", "Egypt", "France", "Jamaica", "China"],
+    superheros:["Superman","Spiderman", "Batman"],
+    bands:["band one", "band two"]
 }
 
-// Add a heading to the app container
-function inititialise() {
-  // If anything is wrong with the app container then end
-  if (!appContainer) {
-    console.error("Error: Could not find app contianer");
-    return;
-  }
+//get random word or property 
 
-  // Create an h1 and add it to our app
-  const h1 = document.createElement("h1");
-  const daysLeft = calculateDaysLeft(countdownDate);
-  let headingTextCalculated = headingText;
+let allKeys = Object.keys(words);
 
-  if (daysLeft) {
-    headingTextCalculated = headingTextCalculated.concat(
-      " In ",
-      daysLeft.toString(),
-      " days "
-    );
-  }
-  h1.textContent = headingTextCalculated.concat(headingTextIcon);
-  appContainer.appendChild(h1);
+//random number depending on keys length
+let randomPropNum = Math.floor(Math.random() * allKeys.length)//0, 1, 2 or 3
 
-  // Init complete
-  console.log("App successfully initialised");
+//allKeys[0]=movies
+//allKeys[1]=countries
+//allKeys[2]=superheros
+//allKeys[3]=bands
+
+// theme
+let randomPropName = allKeys[randomPropNum];
+
+// theme words
+let randomPropValue = words[randomPropName];
+
+// random number depending on words
+let randomValueNum = Math.floor(Math.random() * randomPropValue.length);
+
+// the chosen word
+let randomValueValue = randomPropValue[randomValueNum];
+
+//set theme info
+document.querySelector(".game-info .theme span"). innerHTML = ' '+ randomPropName + ' ' + randomValueValue;
+
+//select letters guess element or container
+let lettersGuessContainer = document.querySelector(".letters-guess");
+
+//convert chosen word to array of characters/letters
+let letterAndSpace = Array.from(randomValueValue);
+
+// create spans depending on word
+letterAndSpace.forEach(letter => {
+
+    // create empty span 
+    let emptySpan = document.createElement("span");
+
+    //if letter is space
+    if (letter === ' '){
+
+        //add class to the span
+        emptySpan.className ='with-space';
+
+    }
+
+    // append spans to the letters guess container
+    lettersGuessContainer.appendChild(emptySpan);
+
+
+});
+
+// select guess spans
+let guessSpans = document.querySelectorAll(".letters-guess span")
+
+
+// set wrong attempts
+let wrongAttempts = 0;
+
+//select the draw element
+let theDrawing = document.querySelector(".hangman-draw");
+
+// handles clicking on letters 
+document.addEventListener("click", (e) =>{
+
+    // set the choice status
+    let theStatus = false;
+   
+    if(e.target.className === 'letter-box'){
+
+        e.target.classList.add("clicked");
+
+        // get clicked letter 
+        let clickedLetter = e.target.innerHTML.toLowerCase();
+
+        // the chosen word 
+        let chosenWord = Array.from(randomValueValue.toLowerCase());
+
+        chosenWord.forEach((wordLetter, wordIndex) =>{
+
+            // if clicked letter equals to one of the chosen word's letter
+
+            if (clickedLetter === wordLetter) {
+
+                // set status to correct
+                theStatus=true;
+
+                //loop on all guess spans
+                guessSpans.forEach((span, spanIndex) => {
+
+
+                    if (wordIndex === spanIndex){
+
+                        span.innerHTML = clickedLetter;
+                    }
+                });
+
+            }
+        }); 
+
+        //outside of loop
+        
+        // if letter is wrong 
+        if (theStatus !== true){
+
+            // increment wrong attempts by 1
+            wrongAttempts++;
+
+            // add class wrong on the drawing element
+
+            theDrawing.classList.add(`wrong-${wrongAttempts}`);
+       
+            //play fail sound
+            document.getElementById("fail").play();
+
+            if (wrongAttempts === 8) {
+
+                endGame();
+
+                lettersContainer.classList.add("finished");
+
+            }
+
+        } else {
+
+            // play success sound
+            document.getElementById("success").play();
+        }
+    }
+
+});
+
+// end game function 
+
+function endGame(){
+
+    // create popup div
+    let div = document.createElement("div");
+
+    // create text 
+    let divText = document.createTextNode(`Game over! The word was ${randomValueValue}`);
+
+    // append text to div
+    div.appendChild(divText);
+
+    // add class on div
+    div.className = 'popup';
+
+    //append to the body
+    document.body.appendChild(div);
+
 }
-
-//
-// Inits & Event Listeners
-//
-
-inititialise();
