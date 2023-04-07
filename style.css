@@ -1,4 +1,107 @@
 
+
+
+/*start of themes page css*/
+
+.themes-body {
+    margin:0;
+    background-color: #8236FD ;
+}
+
+.themes-header {
+	position: relative;
+	overflow: hidden;
+	background-color: #0E0741;
+	padding: 2rem;
+
+}
+
+.themes-header-text h1 {
+	float: none;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+	font-family: 'Quicksand', sans-serif;
+	font-size: 3.5rem;
+	color:#FFFFFF;
+
+}
+
+.themes-header-backbtn a img {
+	max-height: 3rem;
+	padding-bottom: 3rem;
+}
+
+
+.themes-container {
+	box-sizing: border-box;
+	display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+	max-width:max-content;
+    margin-left: auto;
+    margin-right: auto;
+	position: relative;
+}
+
+.themes-list {
+
+    padding: 3rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 4rem;
+	list-style-type: none;
+    text-decoration: none;
+}
+
+ img:hover  {
+	opacity: 70%;
+	transition: .5s ease;
+}  
+
+.themes-list-image {
+	max-width: 100%;
+	display: block;
+	max-height: 300px;
+    object-fit: cover;
+	border-radius: 2.5rem;
+	border-style: inset;
+	border-color: #0E0741;
+  }
+
+
+  @media screen and (max-width: 840px) {
+	.themes-list {
+
+    padding: 3rem;
+    display:grid;
+    justify-content: space-around;
+    gap: 4rem;
+	list-style-type: none;
+    text-decoration: none;
+}
+
+.themes-header-text h1 {
+	float: none;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+	font-family: 'Quicksand', sans-serif;
+	font-size: 3rem;
+	color:#FFFFFF;
+
+}
+
+}
+
+/*end of themes page css*/
+
+
+
 body{
     
     font-family: Arial, Helvetica, sans-serif;
