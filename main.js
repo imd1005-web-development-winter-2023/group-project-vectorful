@@ -31,8 +31,7 @@ lettersArray.forEach(letter => {
 const words ={
     movies:["Titanic", "Inception", "Up", "Tangled", "Whiplash", "Star Wars", "The Matrix", "Interstellar", "Terminator", "Gladiator", "Toy Story", "Avengers", "Jurassic Park", "John Wick", "Harry Potter", "Mad Max", "Monsters Inc", "Jaws", "Ratatouille", "Frozen", "Avatar", "Logan"],
     countries:["Canada", "Libya", "Turkey", "Egypt", "France", "Jamaica", "China", "India", "Brazil", "Russia", "Japan", "Egypt", "Thailand", "Germany", "Kenya", "Poland", "Madagascar", "Italy", "Nigeria", "France", "Argentina", "Morocco", "Peru", "Australia", "Netherlands", "Monaco", "Iceland"],
-    superheros:["Superman","Spider Man", "Batman", "Captain America", "Iron Man", "The Flash", "Moon Knight", "Blue Beetle", "Daredevil", "Dr Strange", "Robin", "Ant-Man", "Hulk", "Wolverine", "Aquaman", "Hawkeye", "Cyborg", "Beast Boy", "Deadpool", "Shazam", "Starfire", "Raven", "Supergirl"],
-    bands:["band one", "band two"]
+    superheros:["Superman","Spider Man", "Batman", "Captain America", "Iron Man", "The Flash", "Moon Knight", "Blue Beetle", "Daredevil", "Dr Strange", "Robin", "Ant-Man", "Hulk", "Wolverine", "Aquaman", "Hawkeye", "Cyborg", "Beast Boy", "Deadpool", "Shazam", "Starfire", "Raven", "Supergirl"]
 };
 
 //get random word or property 
@@ -99,6 +98,7 @@ let livesLeft = 10;
 let correctAttempts = 0;
 
 
+
 //select the draw element
 let theDrawing = document.querySelector(".hangman-draw");
 
@@ -119,17 +119,6 @@ document.addEventListener("click", (e) =>{
         // the chosen word 
         let chosenWord = Array.from(randomValueValue.toLowerCase());
 
-        // chosen word length
-        let chosenWordLength = chosenWord.length;
-
-
-        // chosen word length with space
-        for ( let i = 0; i < chosenWord.length; i++ ){
-
-            if ( chosenWord[i] === ' ' ){
-                chosenWordLength--;
-            }
-        }
 
 
         chosenWord.forEach((wordLetter, wordIndex) =>{
@@ -205,10 +194,18 @@ document.addEventListener("click", (e) =>{
             // increment correct attempts by 1
             correctAttempts++;
 
-            // filter out duplicate letters
+            // filter out duplicate letters from chosen word
             let uniqueChars = chosenWord.filter((c, index)=> {
                 return chosenWord.indexOf(c)===index;
             });
+
+            // remove space from chosen word
+            for ( let i = 0; i < uniqueChars.length; i++ ){
+
+                if ( uniqueChars[i] === ' ' ){
+                    uniqueChars.length--;
+                }
+            }
 
             if (correctAttempts === uniqueChars.length){
                 
