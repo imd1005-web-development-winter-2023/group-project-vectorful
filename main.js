@@ -29,9 +29,9 @@ lettersArray.forEach(letter => {
 
 //object of words and themes
 const words ={
-    movies:["Titanic", "Inception", "Up", "Tangled", "Whiplash"],
-    countries:["Canada", "Libya", "Turkey", "Egypt", "France", "Jamaica", "China"],
-    superheros:["Superman","Spider man", "Batman"],
+    movies:["Titanic", "Inception", "Up", "Tangled", "Whiplash", "Star Wars", "The Matrix", "Interstellar", "Terminator", "Gladiator", "Toy Story", "Avengers", "Jurassic Park", "John Wick", "Harry Potter", "Mad Max", "Monsters Inc", "Jaws", "Ratatouille", "Frozen", "Avatar", "Logan"],
+    countries:["Canada", "Libya", "Turkey", "Egypt", "France", "Jamaica", "China", "India", "Brazil", "Russia", "Japan", "Egypt", "Thailand", "Germany", "Kenya", "Poland", "Madagascar", "Italy", "Nigeria", "France", "Argentina", "Morocco", "Peru", "Australia", "Netherlands", "Monaco", "Iceland"],
+    superheros:["Superman","Spider Man", "Batman", "Captain America", "Iron Man", "The Flash", "Moon Knight", "Blue Beetle", "Daredevil", "Dr Strange", "Robin", "Ant-Man", "Hulk", "Wolverine", "Aquaman", "Hawkeye", "Cyborg", "Beast Boy", "Deadpool", "Shazam", "Starfire", "Raven", "Supergirl"],
     bands:["band one", "band two"]
 };
 
