@@ -31,9 +31,9 @@ lettersArray.forEach(letter => {
 const words ={
     movies:["Titanic", "Inception", "Up", "Tangled", "Whiplash"],
     countries:["Canada", "Libya", "Turkey", "Egypt", "France", "Jamaica", "China"],
-    superheros:["Superman","Spiderman", "Batman"],
+    superheros:["Superman","Spider man", "Batman"],
     bands:["band one", "band two"]
-}
+};
 
 //get random word or property 
 
@@ -60,7 +60,7 @@ let randomValueNum = Math.floor(Math.random() * randomPropValue.length);
 let randomValueValue = randomPropValue[randomValueNum];
 
 //set theme info
-document.querySelector(".game-info .theme span"). innerHTML = ' '+ randomPropName + ' ' + randomValueValue;
+document.querySelector(".game-info .theme span"). innerHTML = ' '+ randomPropName + ' '+randomValueValue;
 
 //select letters guess element or container
 let lettersGuessContainer = document.querySelector(".letters-guess");
@@ -92,11 +92,16 @@ letterAndSpace.forEach(letter => {
 let guessSpans = document.querySelectorAll(".letters-guess span")
 
 
-// set wrong attempts
-let wrongAttempts = 0;
+// set lives left
+let livesLeft = 10;
+
+// set correct attempts
+let correctAttempts = 0;
+
 
 //select the draw element
 let theDrawing = document.querySelector(".hangman-draw");
+
 
 // handles clicking on letters 
 document.addEventListener("click", (e) =>{
@@ -114,6 +119,19 @@ document.addEventListener("click", (e) =>{
         // the chosen word 
         let chosenWord = Array.from(randomValueValue.toLowerCase());
 
+        // chosen word length
+        let chosenWordLength = chosenWord.length;
+
+
+        // chosen word length with space
+        for ( let i = 0; i < chosenWord.length; i++ ){
+
+            if ( chosenWord[i] === ' ' ){
+                chosenWordLength--;
+            }
+        }
+
+
         chosenWord.forEach((wordLetter, wordIndex) =>{
 
             // if clicked letter equals to one of the chosen word's letter
@@ -123,7 +141,7 @@ document.addEventListener("click", (e) =>{
                 // set status to correct
                 theStatus=true;
 
-                //loop on all guess spans
+                // loop on all guess spans
                 guessSpans.forEach((span, spanIndex) => {
 
 
@@ -141,18 +159,36 @@ document.addEventListener("click", (e) =>{
         // if letter is wrong 
         if (theStatus !== true){
 
-            // increment wrong attempts by 1
-            wrongAttempts++;
+            // decrement lives left by 1
+            livesLeft--;
+
+            // display lives left
+            document.querySelector(".game-info .lives-left"). innerHTML = "Lives remaining: "+livesLeft;
+      
+            if (livesLeft === 7){
+
+                //change shown img
+                wrongAttemptImg1();
+            }
+
+            if (livesLeft === 4){
+
+                //change shown img
+                wrongAttemptImg2();
+            }
 
             // add class wrong on the drawing element
 
-            theDrawing.classList.add(`wrong-${wrongAttempts}`);
+            theDrawing.classList.add(`wrong-${livesLeft}`);
        
             //play fail sound
-            document.getElementById("fail").play();
+            let failSnd = document.getElementById("fail");
+            failSnd.currentTime = 0.001;
+            failSnd.play();
 
-            if (wrongAttempts === 8) {
+            if (livesLeft === 0) {
 
+                loseImg();
                 endGame();
 
                 lettersContainer.classList.add("finished");
@@ -162,7 +198,23 @@ document.addEventListener("click", (e) =>{
         } else {
 
             // play success sound
-            document.getElementById("success").play();
+            let successSnd = document.getElementById("success");
+            successSnd.currentTime = 0.001;
+            successSnd.play();
+
+            // increment correct attempts by 1
+            correctAttempts++;
+
+            // filter out duplicate letters
+            let uniqueChars = chosenWord.filter((c, index)=> {
+                return chosenWord.indexOf(c)===index;
+            });
+
+            if (correctAttempts === uniqueChars.length){
+                
+                winImg();
+                winGame();
+            }
         }
     }
 
@@ -171,6 +223,9 @@ document.addEventListener("click", (e) =>{
 // end game function 
 
 function endGame(){
+
+    //play game over audio
+    document.getElementById("game-over").play();
 
     // create popup div
     let div = document.createElement("div");
@@ -188,3 +243,41 @@ function endGame(){
     document.body.appendChild(div);
 
 }
+
+function winGame(){
+
+    //play winning audio
+    document.getElementById("win").play();
+
+    // create popup div
+    let div = document.createElement("div");
+
+    // create text 
+    let divText = document.createTextNode(`You won! The word was ${randomValueValue}`);
+
+    // append text to div
+    div.appendChild(divText);
+
+    // add class on div
+    div.className = 'popup';
+
+    //append to the body
+    document.body.appendChild(div);
+
+}
+
+function wrongAttemptImg1() {
+    document.getElementById("manny-start").src="images/Mannie_2.png";
+  }
+
+  function wrongAttemptImg2() {
+    document.getElementById("manny-start").src="images/Mannie_3.png";
+  }
+
+  function winImg() {
+    document.getElementById("manny-start").src="images/Mannie_Win.png";
+  }
+
+  function loseImg() {
+    document.getElementById("manny-start").src="images/Mannie_4..Lose.png";
+  }
