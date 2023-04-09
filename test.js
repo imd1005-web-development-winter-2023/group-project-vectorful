@@ -43,8 +43,7 @@ initialize();
 
 
 function initialize(){
-
-
+    
     //get array from letters 
     lettersArray = Array.from(letters);
 
@@ -97,7 +96,7 @@ function initialize(){
         // add class on span
         span.className="letter-box";
 
-        // append doan to the letters container
+        // append span to the letters container
         lettersContainer.appendChild(span);
     });
 
@@ -325,13 +324,22 @@ function winGame(){
 function removeStuff(){
 
     // remove popup
-    getElementsByClassName('popup').remove();
+    //getElementsByClassName('popup').remove();
 
-    // remove span
-    span.remove();
+    while (lettersContainer.span) {
+        lettersContainer.removeChild(lettersContainer.span);
+      }
+
+    while (span.theLetter) {
+        span.removeChild(span.theLetter);
+    }
+
+    while(lettersGuessContainer.emptySpan){
+        lettersGuessContainer.removeChild(lettersGuessContainer.emptySpan);
+    }
 
     // remove empty span
-    emptySpan.remove();
+    //emptySpan.remove();
 
 }
 
