@@ -189,7 +189,7 @@ document.addEventListener("click", (e) =>{
             livesLeft--;
 
             // display lives left
-            document.querySelector(".game-info .lives-left"). innerHTML = "Lives remaining: "+livesLeft;
+            document.querySelector(".game-info .lives-left"). innerHTML = "Lives left: "+livesLeft;
       
             if (livesLeft === 7){
 
