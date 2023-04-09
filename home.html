@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <title>Hang-Manny</title>
+    <link rel="icon" type="image/x-icon" href="Manny_face_favicon.png">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Koulen&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="centered_box">
+      <div class="box-top">
+        <h1>Hang-Manny</h1>
+        <img src="logoManny.png" alt="Mannyimg" />
+      </div>
+      <div class="box-bottom">
+        <div class="button_container1">
+          <a class="theme-button" href='themes.html'> PLAY</a>
+        </div>
+        <div class="button_container2">
+          <button class="open-slideshow">INSTRUCTIONS</button>
+        </div>
+      </div>
+    </div>
+            </div>
+         <div class="slideshow-popup">
+            <div class="slide">
+               <img src="slide1.jpg" alt="Slide 1">
+            </div>
+            <div class="slide">
+               <img src="slide2.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+               <img src="slide3.jpg" alt="Slide 3">
+            </div>
+            <div class="slide">
+               <img src="slide4.jpg" alt="Slide 4">
+            </div>
+            <div class="slide">
+               <img src="slide5.jpg" alt="Slide 5">
+            </div>
+            <div class="prev">&#10094;</div>
+            <div class="next">&#10095;</div>
+            <div class="exit">&#10005;</div>
+         </div>
+      </div>
+      </div>
+      </div>
+      </div>
+    <script src="javascript.js"></script>
+  </body>
+  <script>
+    const slideshow = document.getElementById("slideshow");
+    const openSlideshow = document.getElementById("open-slideshow");
+    const closeSlideshow = document.getElementById("close-slideshow");
+
+    openSlideshow.addEventListener("click", function () {
+      slideshow.style.display = "block";
+    });
+
+    closeSlideshow.addEventListener("click", function () {
+      slideshow.style.display = "none";
+    });
+  </script>
+</html>
