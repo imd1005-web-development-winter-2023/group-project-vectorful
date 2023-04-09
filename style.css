@@ -62,7 +62,7 @@
    text-decoration: none;
 }
 
-img:hover  {
+.themes-body img:hover  {
   opacity: 70%;
   transition: .5s ease;
 }  
