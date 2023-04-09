@@ -264,17 +264,17 @@ function winGame(){
 }
 
 function wrongAttemptImg1() {
-    document.getElementById("manny-start").src="images/Mannie_2.png";
+    document.getElementById("manny-start").src="images/Super-Manny_2.png";
   }
 
   function wrongAttemptImg2() {
-    document.getElementById("manny-start").src="images/Mannie_3.png";
+    document.getElementById("manny-start").src="images/Super-Manny_3.png";
   }
 
   function winImg() {
-    document.getElementById("manny-start").src="images/Mannie_Win.png";
+    document.getElementById("manny-start").src="images/Super-Manny_1.png";
   }
 
   function loseImg() {
-    document.getElementById("manny-start").src="images/Mannie_4..Lose.png";
+    document.getElementById("manny-start").src="images/Super-Manny_4.png";
   }
