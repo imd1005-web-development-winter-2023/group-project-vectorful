@@ -273,7 +273,7 @@ function wrongAttemptImg1() {
   }
 
   function winImg() {
-    document.getElementById("manny-start").src="images/Super-Manny_3.png";
+    document.getElementById("manny-start").src="images/Super-Manny_1.png";
   }
 
   function loseImg() {
