@@ -62,10 +62,15 @@
    text-decoration: none;
 }
 
-.themes-body img:hover  {
-  opacity: 70%;
-  transition: .5s ease;
+.themes-header-backbtn img:hover  {
+	opacity: 70%;
+	transition: .5s ease;
 }  
+
+.themes-list-li img:hover  {
+	opacity: 70%;
+	transition: .5s ease;
+}
 
 .themes-list-image {
   max-width: 100%;
