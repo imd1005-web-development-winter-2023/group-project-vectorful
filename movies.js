@@ -359,23 +359,23 @@ function removeStuff(){
 
 }
 
-//CHANGE THESE IMAGES
+
 function startImg() {
-    document.getElementById("manny-start").src="images/Super-Manny_1.png";
+    document.getElementById("manny-start").src="images/Movie-Manny_1.png";
   }
 
 function wrongAttemptImg1() {
-    document.getElementById("manny-start").src="images/Super-Manny_2.png";
+    document.getElementById("manny-start").src="images/Movie-Manny_2.png";
   }
 
   function wrongAttemptImg2() {
-    document.getElementById("manny-start").src="images/Super-Manny_3.png";
+    document.getElementById("manny-start").src="images/Movie-Manny_3.png";
   }
 
   function winImg() {
-    document.getElementById("manny-start").src="images/Super-Manny_Win.png";
+    document.getElementById("manny-start").src="images/Movie-Manny_1.png";
   }
 
   function loseImg() {
-    document.getElementById("manny-start").src="images/Super-Manny_4.png";
+    document.getElementById("manny-start").src="images/Movie-Manny_4.png";
   }
