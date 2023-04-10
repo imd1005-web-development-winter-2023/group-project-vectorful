@@ -42,6 +42,12 @@ initialize();
 
 
 function initialize(){
+    
+    // set lives left
+    livesLeft = 10;
+
+    // display lives left
+    document.querySelector(".game-info .lives-left"). innerHTML = "Lives left: "+ livesLeft;
 
     // set img shown to default img
     startImg();
@@ -80,8 +86,6 @@ function initialize(){
     // set correct attempts
     correctAttempts = 0;
 
-    // set lives left
-    livesLeft = 10;
 
 
     lettersArray.forEach(letter => {
@@ -187,7 +191,7 @@ document.addEventListener("click", (e) =>{
             livesLeft--;
 
             // display lives left
-            document.querySelector(".game-info .lives-left"). innerHTML = "Lives left: "+livesLeft;
+            document.querySelector(".game-info .lives-left"). innerHTML = "Lives left: "+ livesLeft;
       
             if (livesLeft === 7){
 
