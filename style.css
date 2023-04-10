@@ -106,8 +106,7 @@
 /*end of themes page css*/
 
 body{
-    
-   /* font-family: Arial, Helvetica, sans-serif;*/
+
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -126,7 +125,6 @@ body{
       /*background-color: coral;*/
     }
     .letters .letter-box{
-        background-color: aqua;
         width:40px;
         height: 40px;
         line-height: 40px;
@@ -175,6 +173,7 @@ text-decoration: none;
 font-family: 'Koulen', cursive;
 font-size: 20px;
 color:#8236FD;
+
 }
 
 
@@ -192,8 +191,6 @@ color:#8236FD;
     display: flex;
     height: 324px;
     border-radius: 10px;
-
-
 }
 
 .hangman-draw img{
@@ -201,39 +198,6 @@ color:#8236FD;
     height: 100%;
     width:100%;
 }
-
-
- .hangman-draw.wrong-1 .the-drawing {
-    display: block;
- }
-
- .hangman-draw.wrong-2 .stand {
-    display: block;
- }
-
- .hangman-draw.wrong-3 .hang {
-    display: block;
- }
-
- .hangman-draw.wrong-4 .rope {
-    display: block;
- }
-
- .hangman-draw.wrong-5 .head {
-    display: block;
- }
-
- .hangman-draw.wrong-6 .body {
-    display: block;
- }
-
- .hangman-draw.wrong-7 .arms {
-    display: block;
- }
-
- .hangman-draw.wrong-8 .legs {
-    display: block;
- }
 
  .letters {
     flex:1;
@@ -263,7 +227,13 @@ color:#8236FD;
 
  .letters .letter-box:hover { 
     opacity:0.8;
+    transition: .2s ease;
  }
+
+ .letters .letter-box:active { 
+   opacity: 100%;
+   background-color: #0E0741;
+}
 
  .letters .letter-box.clicked { 
     background-color: #0E0741;
@@ -317,17 +287,43 @@ color:#8236FD;
 
  .popup {
     position: fixed;
-    background-color: #8236FD;
-    padding: 50px 20px;
-    width: 80%;
+    background-color: #FFFFFF;
+    padding: 40px 20px;
+    width: 50%;
     top: 40%;
-    left: 10%;
+    left: 25%;
     text-align: center;
     font-size: 30px;
-    color: #FFF;
+    font-weight: 20px;
+    color: #0E0741;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 5px rgba(68, 68, 68, 0.5);
-    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .popup button {
+   
+      background-color: #8236FD;
+      color: #FFFFFF;
+      font-weight:bold;
+      border: none;
+      border-radius: 5px;
+      padding: .5rem;
+      margin-top: 2rem;
+      cursor: pointer;
+      width:50%;
+      align-self: center;
+  }
+
+  .popup button:hover {
+   opacity: 80%;
+   transition: .2s ease;
+  }
+
+  .popup button:active {
+   background-color: #0E0741;
+   opacity: 100%;
   }
 
 
