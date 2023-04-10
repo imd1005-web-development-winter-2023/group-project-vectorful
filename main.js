@@ -42,7 +42,7 @@ initialize();
 
 
 function initialize(){
-    
+
     // set lives left
     livesLeft = 10;
 
@@ -371,7 +371,7 @@ function wrongAttemptImg1() {
   }
 
   function winImg() {
-    document.getElementById("manny-start").src="images/Super-Manny_1.png";
+    document.getElementById("manny-start").src="images/Super-Manny_Win.png";
   }
 
   function loseImg() {
