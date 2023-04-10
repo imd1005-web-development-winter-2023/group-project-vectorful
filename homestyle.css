@@ -71,6 +71,12 @@ h1 {
   text-align: center;
 }
 
+.slide img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 .slideshow-popup .slide {
   display: none;
   position: absolute;
