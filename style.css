@@ -116,13 +116,16 @@ body{
 }
 
 .container{
-    margin: 5px auto;
+    margin: 2px auto;
     min-width: 380px;
     max-width: 400px;
     font-size: 16px;
     color: #0E0741;
+    display:flex;
+    flex-direction: column;
+    padding: 0 1rem;
 }
- /**ipad view**/
+ /**mobile view**/
  @media screen and (min-width: 400px ) {
     .container {
       width: 100%;
@@ -135,9 +138,9 @@ body{
         line-height: 40px;
     }
   }
-  /**ipad view end**/
+  /**mobile view end**/
 
-  /**ipad view**/
+  /**tablet view**/
  @media screen and (min-width: 600px ) {
     .container {
       width: 100%;
@@ -145,7 +148,7 @@ body{
       /*background-color: #842626;*/
     }
   }
-
+  /**tablet view end**/
 
 
 .row{
@@ -214,19 +217,19 @@ color:#8236FD;
  }
 
  .letters .letter-box { 
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     display: inline-block;
     background-color:#8236FD;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     color: white;
-    font-size: 24x;
-    margin-right: 8px;
-    line-height: 55px;
+    font-size: 20px;
+    margin-right: 5px;
+    line-height: 45px;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     border-radius: 5px;
  }
 
@@ -267,9 +270,7 @@ color:#8236FD;
     line-height: 50px;
     text-transform: uppercase;
     font-weight: bold;
-    background-color: #fdfdfd;
     border-bottom: 3px solid #0E0741;
-    border-radius: 5px;
  }
 
  .letters-guess span.with-space {
@@ -294,9 +295,9 @@ color:#8236FD;
     position: fixed;
     background-color: #FFFFFF;
     padding: 40px 20px;
-    width: 50%;
+    width: 80%;
     top: 40%;
-    left: 25%;
+    left: 10%;
     text-align: center;
     font-size: 30px;
     font-weight: 20px;
