@@ -34,9 +34,8 @@
 }
 
 .themes-header-backbtn a img {
-  max-height: 3rem;
-  padding-bottom: 3rem;
-}
+   width:35px
+ }
 
 
 .themes-container {
