@@ -373,7 +373,7 @@ function wrongAttemptImg1() {
   }
 
   function winImg() {
-    document.getElementById("manny-start").src="images/Movie-Manny_1.png";
+    document.getElementById("manny-start").src="images/Movie-Manny_Win.png";
   }
 
   function loseImg() {
