@@ -156,8 +156,6 @@ document.addEventListener("click", (e) =>{
         // the chosen word 
         chosenWord = Array.from(randomValueValue.toLowerCase());
 
-
-
         chosenWord.forEach((wordLetter, wordIndex) =>{
 
             // if clicked letter equals to one of the chosen word's letter
@@ -260,7 +258,7 @@ function endGame(){
     //display finished lettersContainer
     lettersContainer.classList.add("finished");
 
-    // play game over audio
+    //play winning audio
     document.getElementById("game-over").play();
 
     // create popup div
@@ -286,6 +284,7 @@ function endGame(){
 
     // append div to the body
     document.body.appendChild(div);
+
 
     // run initialize and removeStuff when button is clicked
     restartButton.addEventListener('click',() => {    
@@ -351,6 +350,7 @@ function removeStuff(){
     while(lettersGuessContainer.firstChild){
         lettersGuessContainer.removeChild(lettersGuessContainer.firstChild);
     }
+    
 
 }
 
