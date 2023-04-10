@@ -108,7 +108,7 @@ function initialize(){
     });
 
     // set theme info
-    document.querySelector(".game-info .theme span"). innerHTML = ' '+ propName + ' '+ randomValueValue;
+    document.querySelector(".game-info .theme span"). innerHTML = ' '+ propName;
 
     // select letters guess element or container
     lettersGuessContainer = document.querySelector(".letters-guess");
