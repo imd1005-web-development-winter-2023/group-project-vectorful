@@ -184,6 +184,16 @@ color:#8236FD;
 
 }
 
+.game-info .game-name:hover { 
+   opacity:0.8;
+   transition: .2s ease;
+}
+
+.game-info .game-name:active { 
+  opacity: 100%;
+  color: #0E0741;
+}
+
 
 .game-info .theme{
     text-align: right;
