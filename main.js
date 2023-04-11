@@ -1,73 +1,49 @@
-//
-//  JS File
-//  You may remove the code below - it's just boilerplate
-//
+const slideshowPopup = document.querySelector('.slideshow-popup');
+const slides = document.querySelectorAll('.slide');
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+const exitButton = document.querySelector('.exit');
+let currentSlide = 0;
 
-//
-// Variables
-//
-
-// Constants
-const appID = "app";
-const headingText = "Develop. Preview. Ship.";
-const headingTextIcon = "🚀";
-const projectDueDate = "11 April 2023 11:59";
-
-// Variables
-let countdownDate = new Date(projectDueDate);
-
-// DOM Elements
-let appContainer = document.getElementById(appID);
-
-//
-// Functions
-//
-
-function calculateDaysLeft(countdownDate) {
-  const now = new Date().getTime();
-  const countdown = new Date(countdownDate).getTime();
-
-  const difference = (countdown - now) / 1000;
-
-  // Countdown passed already
-  if (difference < 1) {
-    return null;
-  }
-
-  const days = Math.floor(difference / (60 * 60 * 24));
-
-  return days;
+function showSlide(index) {
+    slides[currentSlide].style.display = 'none';
+    slides[index].style.display = 'block';
+    currentSlide = index;
 }
 
-// Add a heading to the app container
-function inititialise() {
-  // If anything is wrong with the app container then end
-  if (!appContainer) {
-    console.error("Error: Could not find app contianer");
-    return;
-  }
-
-  // Create an h1 and add it to our app
-  const h1 = document.createElement("h1");
-  const daysLeft = calculateDaysLeft(countdownDate);
-  let headingTextCalculated = headingText;
-
-  if (daysLeft) {
-    headingTextCalculated = headingTextCalculated.concat(
-      " In ",
-      daysLeft.toString(),
-      " days "
-    );
-  }
-  h1.textContent = headingTextCalculated.concat(headingTextIcon);
-  appContainer.appendChild(h1);
-
-  // Init complete
-  console.log("App successfully initialised");
+function nextSlide() {
+    let newIndex = currentSlide + 1;
+    if (newIndex >= slides.length) {
+        newIndex = 0;
+    }
+    showSlide(newIndex);
 }
 
-//
-// Inits & Event Listeners
-//
+function prevSlide() {
+    let newIndex = currentSlide - 1;
+    if (newIndex < 0) {
+        newIndex = slides.length - 1;
+    }
+    showSlide(newIndex);
+}
 
-inititialise();
+function exitSlideShow() {
+    slideshowPopup.style.display = 'none';
+}
+
+nextButton.addEventListener('click', nextSlide);
+prevButton.addEventListener('click', prevSlide);
+exitButton.addEventListener('click', exitSlideShow);
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowRight') {
+        nextSlide();
+    } else if (event.key === 'ArrowLeft') {
+        prevSlide();
+    }
+});
+
+document.querySelector('.open-slideshow').addEventListener('click', function() {
+    slideshowPopup.style.display = 'block';
+    showSlide(0);
+});

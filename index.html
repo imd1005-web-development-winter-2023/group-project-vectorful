@@ -1,37 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eng">
   <head>
-    <!-- Set the page title -->
-    <title>Group Project</title>
-
+    <title>Hang-Manny</title>
     <!-- Set the charset we're using to UTF-8 -->
     <meta charset="UTF-8" />
-
     <!-- Set the screens default zoom / scale to 1 -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="images/favicon/Manny.png">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="homestyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Koulen&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- We are using a CSS Reset file to standardize browser default css -->
-    <link rel="stylesheet" href="./reset.css" />
-
-    <!-- This is where all of our awesome CSS code goes -->
-    <link rel="stylesheet" href="./style.css" />
-
-    <!-- Set the Favicon  -->
-    <link rel="icon" href="./images/favicon/rocket.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!--
-
-      ADD YOUR GROUP PROJECT CODE
-
-      YOU MAY REMOVE THE BOILERPLATE CODE BELOW
-
-    -->
-    <main>
-      <div id="app"></div>
-    </main>
-
-    <!-- This is where we add our awesome JavaScript code -->
-    <script src="./main.js"></script>
+    <div class="centered_box">
+      <div class="box-top">
+        <h1>Hang-Manny</h1>
+        <img src="images/logoManny.png" alt="Mannyimg" />
+      </div>
+      <div class="box-bottom">
+        <div class="button_container1">
+          <a class="theme-button" href='themes.html'>PLAY</a>
+        </div>
+        <div class="button_container2">
+          <button class="open-slideshow">INSTRUCTIONS</button>
+        </div>
+      </div>
+    </div>
+           </div>
+         <div class="slideshow-popup">
+            <div class="slide">
+               <img src="images/manny slide 1.png" alt="Slide 1">
+            </div>
+            <div class="slide">
+               <img src="images/manny slide 2.png" alt="Slide 2">
+            </div>
+            <div class="slide">
+               <img src="images/manny slide 3.png" alt="Slide 3">
+            </div>
+            <div class="slide">
+               <img src="images/manny slide 4.png" alt="Slide 4">
+            </div>
+            <div class="slide">
+               <img src="images/manny slide 5.png" alt="Slide 5">
+            </div>
+            <div class="prev">&#10094;</div>
+            <div class="next">&#10095;</div>
+            <div class="exit">&#10005;</div>
+         </div>
+      </div>
+      </div>
+      </div>
+      </div>
+    <script src="main.js"></script>
   </body>
+  <script>
+    const slideshow = document.getElementById("slideshow");
+    const openSlideshow = document.getElementById("open-slideshow");
+    const closeSlideshow = document.getElementById("close-slideshow");
+
+    openSlideshow.addEventListener("click", function () {
+      slideshow.style.display = "block";
+    });
+
+    closeSlideshow.addEventListener("click", function () {
+      slideshow.style.display = "none";
+    });
+  </script>
 </html>
