@@ -45,6 +45,7 @@ h1 {
 
 .open-slideshow:hover {
   opacity: 0.8;
+  transition: .2s ease;
 }
 
 /* Show the slideshow when the button is clicked */
