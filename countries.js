@@ -377,5 +377,5 @@ function wrongAttemptImg1() {
   }
 
   function loseImg() {
-    document.getElementById("manny-start").src="images/Super-Manny_4.png";
+    document.getElementById("manny-start").src="images/Pilot-Manny_Lose.png";
   }
